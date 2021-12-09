@@ -140,7 +140,7 @@ export default {
 
   .dashboard-container {
     padding: 32px;
-    background-color: rgb(240, 242, 245);
+    background-color: rgb(240, 235, 235);
     position: relative;
 
     .chart-wrapper {
@@ -251,11 +251,11 @@ export default {
       }
 
       .card-panel-description {
-        float: right;
+        float: right;        
         font-weight: bold;
         margin: 26px;
         margin-left: 0px;
-
+        background-color: #fff;
         .card-panel-text {
           line-height: 18px;
           color: rgba(0, 0, 0, 0.45);

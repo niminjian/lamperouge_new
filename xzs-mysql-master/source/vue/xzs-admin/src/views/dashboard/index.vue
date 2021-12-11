@@ -98,16 +98,17 @@ export default {
   },
   data() {
     return {
-      examPaperCount: 0,
-      questionCount: 0,
-      doExamPaperCount: 0,
-      doQuestionCount: 0,
+      examPaperCount: 0, //试卷总数
+      questionCount: 0, //题目总数
+      doExamPaperCount: 0, //答卷总数
+      doQuestionCount: 0, //答题总数
       echartsUserAction: null,
       echartsQuestion: null,
       loading: false,
     };
   },
   mounted() {
+    //初始化时自动调用初始化方法
     // eslint-disable-next-line no-undef
     this.echartsUserAction = echarts.init(
       //getElementById() 方法可返回对拥有指定 ID 的第一个对象的引用。
@@ -122,6 +123,7 @@ export default {
     let _this = this;
     this.loading = true;
     dashboardApi.index().then((re) => {
+      //调用api层获取数据库中的数据
       let response = re.response;
       _this.examPaperCount = response.examPaperCount;
       _this.questionCount = response.questionCount;

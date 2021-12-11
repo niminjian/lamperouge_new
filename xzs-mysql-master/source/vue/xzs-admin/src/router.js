@@ -4,7 +4,7 @@ import Layout from '@/layout'
 
 Vue.use(Router)
 
-const constantRoutes = [
+const constantRoutes = [  //存放不需要动态判断权限的路由
   {
     path: '/redirect',
     component: Layout,
@@ -23,8 +23,9 @@ const constantRoutes = [
     component: () => import('@/views/login/index'),
     meta: { title: '登录' }
   },
+  //首页
   {
-    path: '/',
+    path: '/',  //path设置为"/"，默认显示该界面
     component: Layout,
     redirect: '/dashboard',
     children: [
@@ -36,6 +37,7 @@ const constantRoutes = [
       }
     ]
   },
+  //用户管理
   {
     path: '/user',
     component: Layout,
@@ -73,6 +75,7 @@ const constantRoutes = [
       }
     ]
   },
+  //卷题管理
   {
     path: '/exam',
     component: Layout,
@@ -138,6 +141,7 @@ const constantRoutes = [
       }
     ]
   },
+  //任务管理
   {
     path: '/task',
     component: Layout,
@@ -162,6 +166,7 @@ const constantRoutes = [
       }
     ]
   },
+  //教育管理
   {
     path: '/education',
     component: Layout,
@@ -187,6 +192,7 @@ const constantRoutes = [
       }
     ]
   },
+  //成绩管理
   {
     path: '/answer',
     component: Layout,
@@ -205,6 +211,7 @@ const constantRoutes = [
       }
     ]
   },
+  //日志中心
   {
     path: '/log',
     component: Layout,
@@ -238,7 +245,7 @@ const constantRoutes = [
   },
   { path: '*',
     hidden: true,
-    component: () => import('@/views/error-page/404'),
+    component: () => import('@/views/error-page/404'),  //@是从src目录开始的
     meta: { title: '404', noCache: true }
   }
 ]

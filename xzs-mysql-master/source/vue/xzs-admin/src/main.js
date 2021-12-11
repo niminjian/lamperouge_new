@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { router } from './router'
+import { router } from './router' //引入路由模块
 import store from './store'
 import 'normalize.css/normalize.css'
 import Element from 'element-ui'
@@ -45,7 +45,7 @@ router.afterEach(() => {
 Vue.prototype.$$router = router
 
 new Vue({
-  router: router,
+  router: router, //挂载路由
   store: store,
   render: h => h(App)
 }).$mount('#app')

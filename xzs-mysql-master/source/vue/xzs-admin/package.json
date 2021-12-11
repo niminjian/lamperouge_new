@@ -1,12 +1,11 @@
 {
-    "name": "xzs-admin",
-    "version": "3.5.0",
-    "author": "武汉思维跳跃科技有限公司",
-    "description": "学之思管理系统",
+    "name": "lamperouge-admin",
+    "version": "1.0.0",
+    "description": "Lamperouge教考分离系统",
     "license": "AGPL-3.0",
     "private": true,
-    "homepage": "https://www.mindskip.net/xzs.html",
-    "scripts": {
+    "homepage": "https://gitee.com/raven_10086/gitee-Lamperouge",
+    "scripts": {  
         "serve": "vue-cli-service serve --mode dev",
         "build": "vue-cli-service build --mode prod",
         "build:dev": "vue-cli-service build --mode dev",
@@ -18,10 +17,6 @@
     "repository": {
         "type": "git",
         "url": "git+https://gitee.com/mindskip/xzs-mysql.git"
-    },
-    "bugs": {
-        "url": "https://gitee.com/mindskip/xzs-mysql/issues",
-        "email": "mindskip@qq.com"
     },
     "husky": {
         "hooks": {

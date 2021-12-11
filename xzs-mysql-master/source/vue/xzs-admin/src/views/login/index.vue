@@ -249,6 +249,10 @@ $light_gray: #eee;
   width: 100%;
   background-color: $bg;
   overflow: hidden;
+  background: url("../../assets/frontCover.png");
+  background-size: 100% 100%;
+  background-color: unset;
+  position: fixed;
 
   .login-form {
     position: relative;
@@ -257,7 +261,7 @@ $light_gray: #eee;
     padding: 30px 50px 10px 50px;
     margin: 120px auto auto auto;
     overflow: hidden;
-    background: rgba(252, 254, 255, 0.11);
+    background: rgba(255, 255, 255, 0.11);
   }
 
   .tips {

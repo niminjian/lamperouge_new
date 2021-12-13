@@ -1,8 +1,8 @@
 {
   "name": "xzs-student",
   "version": "3.5.0",
-  "author": "武汉思维跳跃科技有限公司",
-  "description": "学之思开源考试系统",
+  "author": "Lamperouge教考分离系统",
+  "description": "Lamperouge教考分离系统",
   "license": "AGPL-3.0",
   "private": true,
   "homepage": "https://www.mindskip.net/xzs.html",

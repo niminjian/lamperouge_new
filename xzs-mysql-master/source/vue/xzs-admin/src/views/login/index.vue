@@ -198,7 +198,7 @@ export default {
 
 $bg: #283443;
 $light_gray: rgb(204, 122, 122);
-$cursor: rgb(214, 62, 62);
+$cursor: rgb(19, 18, 18);
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
   .login-container .el-input input {
@@ -231,25 +231,25 @@ $cursor: rgb(214, 62, 62);
   }
 
   .el-form-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     background: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    color: #454545;
+    color: #0e0e0e;
   }
 }
 </style>
 
 <style lang="scss" scoped>
 $bg: #2d3a4b;
-$dark_gray: #889aa4;
-$light_gray: #eee;
+$dark_gray: #1f1f1f;
+$light_gray: #181717;
 
 .login-container {
   min-height: 100%;
   width: 100%;
   background-color: $bg;
   overflow: hidden;
-  background: url("../../assets/frontCover.png");
+  background: url("../../assets/login.jpg");
   background-size: 100% 100%;
   background-color: unset;
   position: fixed;
@@ -261,7 +261,7 @@ $light_gray: #eee;
     padding: 30px 50px 10px 50px;
     margin: 120px auto auto auto;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.11);
+    background: rgba(255, 255, 255, 0.3);
   }
 
   .tips {

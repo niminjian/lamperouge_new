@@ -7,12 +7,10 @@
         class="sidebar-logo-link"
         to="/"
       >
-        <img src="@/assets/logo.png" class="sidebar-logo" />
-        <h1 class="sidebar-title">{{ title }}</h1>
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img src="@/assets/logo.png" class="sidebar-logo" />
         <h1 class="sidebar-title">{{ title }}</h1>
+        <img src="@/assets/logo.png" class="sidebar-logo" />
       </router-link>
     </transition>
   </div>
@@ -29,7 +27,7 @@ export default {
   },
   data() {
     return {
-      title: "Lamperouge教考分离系统",
+      title: "Lamperouge",
     };
   },
 };
@@ -67,7 +65,7 @@ export default {
     & .sidebar-title {
       display: inline-block;
       margin: 0;
-      color: #fff;
+      color: #ffffff;
       font-weight: 600;
       line-height: 50px;
       font-size: 14px;

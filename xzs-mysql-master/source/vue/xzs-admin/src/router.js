@@ -229,6 +229,32 @@ const constantRoutes = [  //存放不需要动态判断权限的路由
       }
     ]
   },
+  //结果统计
+  {
+    path: '/result',
+    component: Layout,
+    name: 'ResultPage',
+    meta: {
+      title: '结果统计',
+      icon: 'eye-open'
+    },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'invigilator/statics',
+        component: () => import('@/views/result/invigilatorStatics/list'),
+        name: 'InvigilatorStatisticsPage',
+        meta: { title: '监考情况统计', noCache: true }
+      },
+      {
+        path: 'testresult/statics',
+        component: () => import('@/views/result/testResult/list'),
+        name: 'TestResultStatisticsPage',
+        meta: { title: '考试结果统计', noCache: true }
+      }
+    ]
+  },
+  //个人信息
   {
     path: '/profile',
     component: Layout,

@@ -9,7 +9,7 @@ module.exports = {
   publicPath: './',
   outputDir: 'student',
   assetsDir: 'static',
-  lintOnSave: true,
+  lintOnSave: false,
   productionSourceMap: false,
   devServer: {
     open: true,

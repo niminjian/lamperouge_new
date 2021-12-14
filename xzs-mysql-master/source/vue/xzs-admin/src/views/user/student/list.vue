@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParam" ref="queryForm" :inline="true">
+    <el-form :model="queryParam" ref="queryForm" :inline="true" align="center">
       <el-form-item label="用户名：">
         <el-input v-model="queryParam.userName"></el-input>
       </el-form-item>

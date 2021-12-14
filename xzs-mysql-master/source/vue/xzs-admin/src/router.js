@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Layout from '@/layout'
 
 Vue.use(Router)
-
 const constantRoutes = [  //存放不需要动态判断权限的路由
   {
     path: '/redirect',
@@ -43,7 +42,7 @@ const constantRoutes = [  //存放不需要动态判断权限的路由
     component: Layout,
     name: 'UserPage',
     meta: {
-      title: '用户管理',
+      title: '用户权限管理',
       icon: 'users'
     },
     children: [
@@ -51,7 +50,7 @@ const constantRoutes = [  //存放不需要动态判断权限的路由
         path: 'student/list',
         component: () => import('@/views/user/student/list'),
         name: 'UserStudentPageList',
-        meta: { title: '学生列表', noCache: true }
+        meta: { title: '学生', noCache: true }
       },
       {
         path: 'student/edit',
@@ -64,7 +63,7 @@ const constantRoutes = [  //存放不需要动态判断权限的路由
         path: 'admin/list',
         component: () => import('@/views/user/admin/list'),
         name: 'UserAdminPageList',
-        meta: { title: '管理员列表', noCache: true }
+        meta: { title: '管理员', noCache: true }
       },
       {
         path: 'admin/edit',

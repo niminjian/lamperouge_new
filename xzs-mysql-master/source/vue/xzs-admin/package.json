@@ -5,7 +5,7 @@
     "license": "AGPL-3.0",
     "private": true,
     "homepage": "https://gitee.com/raven_10086/gitee-Lamperouge",
-    "scripts": {  
+    "scripts": {
         "serve": "vue-cli-service serve --mode dev",
         "build": "vue-cli-service build --mode prod",
         "build:dev": "vue-cli-service build --mode dev",
@@ -58,6 +58,7 @@
         "babel-plugin-import": "^1.13.3",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.0.0",
+        "less": "^4.1.2",
         "node-sass": "^4.14.1",
         "sass-loader": "^8.0.2",
         "svg-sprite-loader": "4.1.6",

@@ -60,7 +60,7 @@
 
       <el-checkbox
         v-model="loginForm.remember"
-        style="margin-bottom: 20px; margin-left: 5px"
+        style="margin-bottom: 20px; margin-left: 5px; color: #00a0e9"
         >记住密码</el-checkbox
       >
 
@@ -197,7 +197,7 @@ export default {
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
 $bg: #283443;
-$light_gray: rgb(204, 122, 122);
+$light_gray: rgb(0, 0, 0);
 $cursor: rgb(19, 18, 18);
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
@@ -234,7 +234,7 @@ $cursor: rgb(19, 18, 18);
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    color: #0e0e0e;
+    color: #7f7a7a;
   }
 }
 </style>

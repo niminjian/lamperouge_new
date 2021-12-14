@@ -189,8 +189,11 @@ export default {
 .dashboard-container {
   //最大的选择器
   padding: 32px;
-  background-color: rgb(254, 101, 67);
+  background-color: rgb(180, 168, 179);
   position: relative;
+  background: url("../../assets/dashboard.jpg");
+  background-size: 100% 100%;
+  background-color: unset;
 
   .chart-wrapper {
     background: #fff;

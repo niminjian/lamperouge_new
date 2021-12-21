@@ -13,9 +13,9 @@
       </div>
 
       <el-form-item prop="userName">
-        <span class="svg-container">
-          <svg-icon icon-class="user" />
-        </span>
+<!--        <span class="svg-container">-->
+<!--          <svg-icon icon-class="user" />-->
+<!--        </span>-->
         <el-input
           ref="userName"
           v-model="loginForm.userName"
@@ -27,16 +27,10 @@
         />
       </el-form-item>
 
-      <el-tooltip
-        v-model="capsTooltip"
-        content="Caps lock is On"
-        placement="right"
-        manual
-      >
         <el-form-item prop="password">
-          <span class="svg-container">
-            <svg-icon icon-class="password" />
-          </span>
+<!--          <span class="svg-container">-->
+<!--            <svg-icon icon-class="password" />-->
+<!--          </span>-->
           <el-input
             :key="passwordType"
             ref="password"
@@ -47,22 +41,20 @@
             tabindex="2"
             auto-complete="on"
             @keyup.native="checkCapslock"
-            @blur="capsTooltip = false"
             @keyup.enter.native="handleLogin"
           />
-          <span class="show-pwd" @click="showPwd">
-            <svg-icon
-              :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
-            />
-          </span>
+<!--          <span class="show-pwd" @click="showPwd">-->
+<!--            <svg-icon-->
+<!--              :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"-->
+<!--            />-->
+<!--          </span>-->
         </el-form-item>
-      </el-tooltip>
 
-      <el-checkbox
-        v-model="loginForm.remember"
-        style="margin-bottom: 20px; margin-left: 5px; color: #00a0e9"
-        >记住密码</el-checkbox
-      >
+<!--      <el-checkbox-->
+<!--        v-model="loginForm.remember"-->
+<!--        style="margin-bottom: 20px; margin-left: 5px; color: #00a0e9"-->
+<!--        >记住密码</el-checkbox-->
+<!--      >-->
 
       <el-button
         :loading="loading"
@@ -73,9 +65,9 @@
       >
     </el-form>
 
-    <div class="account-foot-copyright">
-      <span>Copyright © Lamperouge教考分离系统</span>
-    </div>
+<!--    <div class="account-foot-copyright">-->
+<!--      <span>Copyright © Lamperouge教考分离系统</span>-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -115,7 +107,6 @@ export default {
         ],
       },
       passwordType: "password",
-      capsTooltip: false,
       loading: false,
       showDialog: false,
     };
@@ -134,32 +125,16 @@ export default {
     // window.removeEventListener('storage', this.afterQRScan)
   },
   methods: {
-    checkCapslock({ shiftKey, key } = {}) {
-      if (key && key.length === 1) {
-        // eslint-disable-next-line no-mixed-operators
-        if (
-          (shiftKey && key >= "a" && key <= "z") ||
-          (!shiftKey && key >= "A" && key <= "Z")
-        ) {
-          this.capsTooltip = true;
-        } else {
-          this.capsTooltip = false;
-        }
-      }
-      if (key === "CapsLock" && this.capsTooltip === true) {
-        this.capsTooltip = false;
-      }
-    },
-    showPwd() {
-      if (this.passwordType === "password") {
-        this.passwordType = "";
-      } else {
-        this.passwordType = "password";
-      }
-      this.$nextTick(() => {
-        this.$refs.password.focus();
-      });
-    },
+    // showPwd() {
+    //   if (this.passwordType === "password") {
+    //     this.passwordType = "";
+    //   } else {
+    //     this.passwordType = "password";
+    //   }
+    //   this.$nextTick(() => {
+    //     this.$refs.password.focus();
+    //   });
+    // },
     handleLogin() {
       let _this = this;
       this.$refs.loginForm.validate((valid) => {
@@ -194,9 +169,8 @@ export default {
 
 <style lang="scss">
 /* 修复input 背景不协调 和光标变色 */
-/* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
-$bg: #283443;
+$bg: rgb(218, 237, 255);
 $light_gray: rgb(0, 0, 0);
 $cursor: rgb(19, 18, 18);
 

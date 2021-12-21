@@ -1,5 +1,7 @@
 package com.mindskip.xzs.base;
 
+
+//统一状态响应码
 public enum SystemCode {
     /**
      * OK

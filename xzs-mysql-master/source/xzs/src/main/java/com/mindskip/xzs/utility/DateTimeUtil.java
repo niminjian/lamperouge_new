@@ -9,9 +9,6 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 public class DateTimeUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(DateTimeUtil.class);

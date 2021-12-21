@@ -12,9 +12,6 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 public class RsaUtil {
     /**
      * String to hold name of the encryption algorithm.

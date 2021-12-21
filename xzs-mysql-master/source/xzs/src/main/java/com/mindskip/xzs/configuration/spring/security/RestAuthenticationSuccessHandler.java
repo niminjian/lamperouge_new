@@ -20,7 +20,6 @@ import java.util.Date;
 /**
  * 登录成功返回
  *
- * @author 武汉思维跳跃科技有限公司
  */
 @Component
 public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {

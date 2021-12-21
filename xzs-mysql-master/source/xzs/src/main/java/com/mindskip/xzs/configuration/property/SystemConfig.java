@@ -5,9 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 @ConfigurationProperties(prefix = "system")
 public class SystemConfig {
 

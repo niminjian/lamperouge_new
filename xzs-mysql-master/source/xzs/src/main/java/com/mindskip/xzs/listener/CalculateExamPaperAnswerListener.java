@@ -17,9 +17,6 @@ import java.util.Date;
 import java.util.List;
 
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 @Component
 public class CalculateExamPaperAnswerListener implements ApplicationListener<CalculateExamPaperAnswerCompleteEvent> {
 

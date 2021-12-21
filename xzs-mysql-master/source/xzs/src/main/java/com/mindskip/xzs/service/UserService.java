@@ -7,9 +7,6 @@ import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 public interface UserService extends BaseService<User> {
 
     /**

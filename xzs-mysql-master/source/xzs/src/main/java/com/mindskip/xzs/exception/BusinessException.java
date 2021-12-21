@@ -1,8 +1,5 @@
 package com.mindskip.xzs.exception;
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 public class BusinessException extends RuntimeException {
 
     public static final int UNKNOWN_EXCEPTION = 0;

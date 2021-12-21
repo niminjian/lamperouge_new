@@ -1,9 +1,6 @@
 package com.mindskip.xzs.configuration.spring.security;
 
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 
 public class AuthenticationBean {
     private String userName;

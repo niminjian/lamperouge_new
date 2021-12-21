@@ -9,9 +9,6 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 public class RestUtil {
     private static final Logger logger = LoggerFactory.getLogger(RestUtil.class);
 

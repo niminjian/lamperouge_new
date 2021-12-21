@@ -9,10 +9,6 @@ import org.springframework.web.servlet.config.annotation.*;
 import java.util.List;
 
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
-
 @Configuration
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 

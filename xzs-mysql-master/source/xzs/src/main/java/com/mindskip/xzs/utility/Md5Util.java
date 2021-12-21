@@ -10,9 +10,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 public class Md5Util {
 
     private static final Logger logger = LoggerFactory.getLogger(Md5Util.class);

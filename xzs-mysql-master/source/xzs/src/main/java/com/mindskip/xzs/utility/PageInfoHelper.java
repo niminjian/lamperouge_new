@@ -5,9 +5,6 @@ import com.github.pagehelper.PageInfo;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 public class PageInfoHelper {
 
     public static <T, J> PageInfo<J> copyMap(PageInfo<T> source, Function<? super T, ? extends J> mapper) {

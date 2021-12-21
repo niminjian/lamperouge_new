@@ -18,9 +18,6 @@ import java.util.Collections;
 import java.util.List;
 
 
-/**
- * @author 武汉思维跳跃科技有限公司
- */
 
 @Configuration
 @EnableWebSecurity

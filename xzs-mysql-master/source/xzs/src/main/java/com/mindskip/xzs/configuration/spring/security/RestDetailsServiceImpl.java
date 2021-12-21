@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 
 /**
- * @author :  武汉思维跳跃科技有限公司
  * Description :  验证通过之后,第二、三...请求，会调用此类
  */
 

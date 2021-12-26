@@ -56,7 +56,7 @@ export default {
         userName: '',
         role: 3,
         pageIndex: 1,
-        pageSize: 10
+        pageSize: 5
       },
       listLoading: true,
       tableData: [],

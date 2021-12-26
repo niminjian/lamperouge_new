@@ -108,7 +108,7 @@ export default {
     };
   },
   mounted() {
-    //初始化时自动调用初始化方法
+    // 挂载时自动调用初始化方法
     // eslint-disable-next-line no-undef
     this.echartsUserAction = echarts.init(
       //getElementById() 方法可返回对拥有指定 ID 的第一个对象的引用。

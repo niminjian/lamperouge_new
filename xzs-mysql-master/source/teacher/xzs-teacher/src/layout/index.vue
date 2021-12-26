@@ -1,0 +1,98 @@
+<template>
+  <div :class="classObj" class="app-wrapper">
+    <sidebar class="sidebar-container" />
+    <div class="hasTagsView main-container">
+      <div class="fixed-header">
+        <navbar />
+        <tags-view />
+      </div>
+      <app-main />
+<!--      <back-to-top-->
+<!--        :visibility-height="100"-->
+<!--        :back-position="0"-->
+<!--        transition-name="fade"-->
+<!--        ref="backTop"-->
+<!--      />-->
+    </div>
+  </div>
+</template>
+
+<script>
+import { AppMain, Navbar, Sidebar, TagsView } from "./components";
+import { mapState } from "vuex";
+import BackToTop from "@/components/BackToTop";
+export default {
+  name: "Layout",
+  components: {
+    AppMain,
+    Navbar,
+    Sidebar,
+    TagsView,
+    BackToTop,
+  },
+  computed: {
+    ...mapState({
+      sidebar: (state) => state.app.sidebar,
+      device: (state) => state.app.device,
+    }),
+    classObj() {
+      return {
+        hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
+        withoutAnimation: this.sidebar.withoutAnimation,
+        mobile: this.device === "mobile",
+      };
+    },
+  },
+  methods: {
+    handleClickOutside() {
+      this.$store.dispatch("app/closeSideBar", { withoutAnimation: false });
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+  //@import CSS@规则，用于从其他样式表导入样式规则。这些规则必须先于所有其他类型的规则，
+@import "~@/styles/mixin.scss";
+@import "~@/styles/variables.scss";
+
+.app-wrapper {
+  @include clearfix;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  &.mobile.openSidebar {
+    position: fixed;
+    top: 0;
+  }
+}
+
+.drawer-bg {
+  background: #000;
+  opacity: 0.3;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  width: calc(100% - #{$sideBarWidth});
+  transition: width 0.28s;
+}
+
+.hideSidebar .fixed-header {
+  width: calc(100% - 54px);
+}
+
+.mobile .fixed-header {
+  width: 100%;
+}
+</style>

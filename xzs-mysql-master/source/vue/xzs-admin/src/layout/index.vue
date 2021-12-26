@@ -63,6 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  //@import CSS@规则，用于从其他样式表导入样式规则。这些规则必须先于所有其他类型的规则，
 @import "~@/styles/mixin.scss";
 @import "~@/styles/variables.scss";
 

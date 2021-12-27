@@ -66,29 +66,6 @@
         </el-col>
       </div>
     </el-row>
-    <el-row class="app-item-contain">
-      <h3 class="index-title-h3" style="border-left: solid 10px rgb(220, 208, 65);">时段试卷</h3>
-      <div style="padding-left: 15px">
-        <el-col :span="4" v-for="(item, index) in timeLimitPaper" :key="index" :offset="index > 0 ? 1 : 0">
-          <el-card :body-style="{ padding: '0px' }" v-loading="loading">
-            <img src="@/assets/exam-paper/show2.png" class="image">
-            <div style="padding: 14px;">
-              <span>{{item.name}}</span>
-              <p class="index-limit-paper-time">
-                <span>{{item.startTime}}</span>
-                <br/>
-                <span>{{item.endTime}}</span>
-              </p>
-              <div class="bottom clearfix">
-                <router-link target="_blank" :to="{path:'/do',query:{id:item.id}}">
-                  <el-button type="text" class="button">开始做题</el-button>
-                </router-link>
-              </div>
-            </div>
-          </el-card>
-        </el-col>
-      </div>
-    </el-row>
   </div>
 </template>
 

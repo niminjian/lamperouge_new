@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue_demo</title>
+    <script type="text/javascript" src="vue.min.js"></script>
+    <style type="text/css">
+    #app {
+        width: 400px;
+        height: 720px;
+        margin: 0px auto;
+        margin-top: 75px;
+        border: 1px solid #d3d3d3;
+        border-radius: 5px;
+        box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    .questions {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .questions p {
+        font-size: 20px;
+    }
+
+    .questions span {
+        float: right;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .questions ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .questions ul li {
+        height: 40px;
+        border-radius: 15px;
+        background-color: #eee;
+        margin: 15px 0;
+        line-height: 40px;
+        padding: 0 15px;
+        transition: all 0.3s;
+    }
+
+    .questions ul li:hover {
+        background-color: #d3d3d3;
+    }
+
+    .timer {
+        width: 100%;
+        height: 35px;
+    }
+
+    .timer p {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .rightAns {
+        background-color: #00cc33 !important;
+        color: #fff;
+    }
+
+    .wrongAns {
+        background-color: #0066cc !important;
+        color: #fff;
+    }
+
+    .result {
+        font-size: 25px;
+        text-align: center;
+        margin-top: 150px;
+    }
+    .start {
+        width: 100px;
+        height: 45px;
+        margin: 0 auto;
+        margin-top: 200px;
+        background-color: #00cc33;
+        border-radius: 15px;
+        text-align: center;
+        line-height: 45px;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="result" v-if=end>
+            <p>答题结束，一共答对{{rightNum}}道题！</p>
+        </div>
+        <div class="start" v-if=!start v-on:click="isStart">
+            开始答题
+        </div>
+        <div v-if="start&&!end">
+            <div class="timer">
+                <p>倒计时：{{timeout}}</p>
+            </div>
+            <div class="questions">
+                <p>{{index+1}}.{{questions[index].ques}}</p>
+                <ul>
+                    <li :tag="questions[index].ans1" v-on:click="comfirm" :class="isSelected?(questions[index].ans1==questions[index].riAns ? 'rightAns' : 'wrongAns'):''">
+                        A.{{questions[index].ans1}}
+                        <span v-if = isSelected>
+                            {{questions[index].ans1 == questions[index].riAns ? right : wrong}}
+                        </span>
+                    </li>
+                    <li :tag="questions[index].ans2" v-on:click="comfirm" :class="isSelected?(questions[index].ans2==questions[index].riAns ? 'rightAns' : 'wrongAns'):''">
+                        B.{{questions[index].ans2}}
+                        <span v-if = isSelected>
+                            {{questions[index].ans2 == questions[index].riAns ? right : wrong}}
+                        </span>
+                    </li>
+                    <li :tag="questions[index].ans3" v-on:click="comfirm" :class="isSelected?(questions[index].ans3==questions[index].riAns ? 'rightAns' : 'wrongAns'):''">
+                        C.{{questions[index].ans3}}
+                        <span v-if = isSelected>
+                            {{questions[index].ans3 == questions[index].riAns ? right : wrong}}
+                        </span>
+                    </li>
+                    <li :tag="questions[index].ans4" v-on:click="comfirm" :class="isSelected?(questions[index].ans4==questions[index].riAns ? 'rightAns' : 'wrongAns'):''">
+                        D.{{questions[index].ans4}}
+                        <span v-if = isSelected>
+                            {{questions[index].ans4 == questions[index].riAns ? right : wrong}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="timer">
+                <p>已答对{{rightNum}}题</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            start: false,
+            end: false,
+            rightNum: 0,
+            isSelected: false,
+            timeout: 60,
+            index: 0,
+            right: "√",
+            wrong: "×",
+            questions: [{
+                    ques: "–You’re not free now, are you? -_____. I have some work to do.",
+                    ans1: "Yes, I am.",
+                    ans2: "No, I am.",
+                    ans3: "Yes, I am not.",
+                    ans4: "No, I’m not.",
+                    riAns: "No, I’m not."
+                },
+                {
+                    ques: "-Which of these two pairs of shoes will you take? -I’ll take ____ to give me a change sometimes.",
+                    ans1: "neither",
+                    ans2: "all",
+                    ans3: "both",
+                    ans4: "either",
+                    riAns: "both"
+                },
+                {
+                    ques: "We hear that one of those American students ____ going to come to our classes next term.",
+                    ans1: "will be",
+                    ans2: "are",
+                    ans3: "is",
+                    ans4: "was",
+                    riAns: "are"
+                },
+                {
+                    ques: "-______? - Sorry, I’m not sure, either.",
+                    ans1: "How do you do?",
+                    ans2: "Can you help me?",
+                    ans3: "How to pronounce this word?",
+                    ans4: "Can you lend me a map?",
+                    riAns: "How to pronounce this word?"
+                },
+                {
+                    ques: "Harry said that he _____ to American before.",
+                    ans1: "has been",
+                    ans2: "had been",
+                    ans3: "had gone",
+                    ans4: "would go",
+                    riAns: "had been"
+                },
+            ]
+        },
+        methods: {
+            timer: function() {
+                let that = this;
+                setInterval(function() {
+                    that.timeout--;
+                    if (that.timeout == 0) {
+                        that.isEnd();
+                    }
+                }, 1000);
+            },
+            comfirm: function(e) {
+                let that = this;
+                that.isSelected = true;
+                if (e.target.attributes[0].nodeValue == that.questions[that.index].riAns) {
+                    that.rightNum++;
+                }
+                that.change();
+            },
+            change: function() {
+                let that = this;
+                setTimeout(function() {
+                    if (that.index == that.questions.length - 1) {
+                        that.isEnd();
+                    } else {
+                        that.index++;
+                        that.isSelected = false;
+                    }
+                }, 1000);
+            },
+            isEnd: function() {
+                let that = this;
+                that.end = true;
+            },
+            isStart:function(){
+                let that = this;
+                that.start = true;
+                that.timer();
+            }
+        }
+    });
+
+
+    </script>
+</body>
+
+</html>

@@ -132,7 +132,20 @@ const constantRoutes = [  //存放不需要动态判断权限的路由
         meta: { title: '结果统计', icon: 'search', affix: true }
       }
     ]
-  },
+  }
+  // {
+  //   path: '/test',  //path设置为"/"，默认显示该界面
+  //   component: Layout,
+  //   redirect: '/test',
+  //   children: [
+  //     {
+  //       path: 'test',
+  //       component: () => import('@/views/test/index(1).html'),
+  //       name: 'test',
+  //       meta: { title: '考试', icon: 'search', affix: true }
+  //     }
+  //   ]
+  // }
 ]
 
 const router = new Router({

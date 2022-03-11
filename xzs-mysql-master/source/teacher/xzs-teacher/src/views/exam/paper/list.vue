@@ -39,73 +39,73 @@
 </template>
 
 <script>
-import { mapGetters, mapState, mapActions } from 'vuex'
-import Pagination from '@/components/Pagination'
-import examPaperApi from '@/api/examPaper'
+  import { mapGetters, mapState, mapActions } from 'vuex'
+  import Pagination from '@/components/Pagination'
+  import examPaperApi from '@/api/examPaper'
 
-export default {
-  components: { Pagination },
-  data () {
-    return {
-      queryParam: {
-        id: null,
-        level: null,
-        subjectId: null,
-        pageIndex: 1,
-        pageSize: 10
-      },
-      subjectFilter: null,
-      listLoading: true,
-      tableData: [],
-      total: 0
-    }
-  },
-  created () {
-    this.initSubject()
-    this.search()
-  },
-  methods: {
-    submitForm () {
-      this.queryParam.pageIndex = 1
+  export default {
+    components: { Pagination },
+    data () {
+      return {
+        queryParam: {
+          id: null,
+          level: null,
+          subjectId: null,
+          pageIndex: 1,
+          pageSize: 10
+        },
+        subjectFilter: null,
+        listLoading: true,
+        tableData: [],
+        total: 0
+      }
+    },
+    created () {
+      this.initSubject()
       this.search()
     },
-    search () {
-      this.listLoading = true
-      examPaperApi.pageList(this.queryParam).then(data => {
-        const re = data.response
-        this.tableData = re.list
-        this.total = re.total
-        this.queryParam.pageIndex = re.pageNum
-        this.listLoading = false
-      })
+    methods: {
+      submitForm () {
+        this.queryParam.pageIndex = 1
+        this.search()
+      },
+      search () {
+        this.listLoading = true
+        examPaperApi.pageList(this.queryParam).then(data => {
+          const re = data.response
+          this.tableData = re.list
+          this.total = re.total
+          this.queryParam.pageIndex = re.pageNum
+          this.listLoading = false
+        })
+      },
+      deletePaper (row) {
+        let _this = this
+        examPaperApi.deletePaper(row.id).then(re => {
+          if (re.code === 1) {
+            _this.search()
+            _this.$message.success(re.message)
+          } else {
+            _this.$message.error(re.message)
+          }
+        })
+      },
+      levelChange () {
+        this.queryParam.subjectId = null
+        this.subjectFilter = this.subjects.filter(data => data.level === this.queryParam.level)
+      },
+      subjectFormatter  (row, column, cellValue, index) {
+        return this.subjectEnumFormat(cellValue)
+      },
+      ...mapActions('exam', { initSubject: 'initSubject' })
     },
-    deletePaper (row) {
-      let _this = this
-      examPaperApi.deletePaper(row.id).then(re => {
-        if (re.code === 1) {
-          _this.search()
-          _this.$message.success(re.message)
-        } else {
-          _this.$message.error(re.message)
-        }
-      })
-    },
-    levelChange () {
-      this.queryParam.subjectId = null
-      this.subjectFilter = this.subjects.filter(data => data.level === this.queryParam.level)
-    },
-    subjectFormatter  (row, column, cellValue, index) {
-      return this.subjectEnumFormat(cellValue)
-    },
-    ...mapActions('exam', { initSubject: 'initSubject' })
-  },
-  computed: {
-    ...mapGetters('enumItem', ['enumFormat']),
-    ...mapState('enumItem', {
-      levelEnum: state => state.user.levelEnum
-    }),
-    ...mapGetters('exam', ['subjectEnumFormat']),
-    ...mapState('exam', { subjects: state => state.subjects })
+    computed: {
+      ...mapGetters('enumItem', ['enumFormat']),
+      ...mapState('enumItem', {
+        levelEnum: state => state.user.levelEnum
+      }),
+      ...mapGetters('exam', ['subjectEnumFormat']),
+      ...mapState('exam', { subjects: state => state.subjects })
+    }
   }
-}
 </script>

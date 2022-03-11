@@ -16,16 +16,20 @@ const request = function (loadtip, query) {
       if (loadtip) {
         loading.close()
       }
-      if (res.data.code === 401) {
-        vue.prototype.$$router.push({ path: '/login' })
-        return Promise.reject(res.data)
-      } else if (res.data.code === 500) {
-        return Promise.reject(res.data)
-      } else if (res.data.code === 501) {
-        return Promise.reject(res.data)
-      } else if (res.data.code === 502) {
-        vue.prototype.$$router.push({ path: '/login' })
-        return Promise.reject(res.data)
+      if (res.data.code === 401) {  //401是用户未登录
+        //vue.prototype.$$router.push({ path: '/login' })
+        //return Promise.reject(res.data)
+        return Promise.resolve(res.data)
+      } else if (res.data.code === 500) { //500是系统内部错误
+        //return Promise.reject(res.data)
+        return Promise.resolve(res.data)
+      } else if (res.data.code === 501) { //501是参数验证错误
+        //return Promise.reject(res.data)
+        return Promise.resolve(res.data)
+      } else if (res.data.code === 502) { //502是用户没有权限访问
+        //vue.prototype.$$router.push({ path: '/login' })
+        //return Promise.reject(res.data)
+        return Promise.resolve(res.data)
       } else {
         return Promise.resolve(res.data)
       }

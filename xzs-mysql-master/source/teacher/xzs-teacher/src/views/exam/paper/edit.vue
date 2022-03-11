@@ -151,13 +151,13 @@ export default {
     this.initSubject(function () {
       _this.subjectFilter = _this.subjects
     })
-    if (id && parseInt(id) !== 0) {
+    //if (id && parseInt(id) !== 0) {
       _this.formLoading = true
       examPaperApi.select(id).then(re => {
         _this.form = re.response
         _this.formLoading = false
       })
-    }
+    //}
   },
   methods: {
     submitForm () {

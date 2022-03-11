@@ -28,9 +28,6 @@
       </el-form-item>
 
         <el-form-item prop="password">
-<!--          <span class="svg-container">-->
-<!--            <svg-icon icon-class="password" />-->
-<!--          </span>-->
           <el-input
             :key="passwordType"
             ref="password"
@@ -43,18 +40,7 @@
             @keyup.native="checkCapslock"
             @keyup.enter.native="handleLogin"
           />
-<!--          <span class="show-pwd" @click="showPwd">-->
-<!--            <svg-icon-->
-<!--              :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"-->
-<!--            />-->
-<!--          </span>-->
         </el-form-item>
-
-<!--      <el-checkbox-->
-<!--        v-model="loginForm.remember"-->
-<!--        style="margin-bottom: 20px; margin-left: 5px; color: #00a0e9"-->
-<!--        >记住密码</el-checkbox-->
-<!--      >-->
 
       <el-button
         :loading="loading"
@@ -65,9 +51,6 @@
       >
     </el-form>
 
-<!--    <div class="account-foot-copyright">-->
-<!--      <span>Copyright © Lamperouge教考分离系统</span>-->
-<!--    </div>-->
   </div>
 </template>
 
@@ -111,9 +94,6 @@ export default {
       showDialog: false,
     };
   },
-  created() {
-    // window.addEventListener('storage', this.afterQRScan)
-  },
   mounted() {
     if (this.loginForm.userName === "") {
       this.$refs.userName.focus();
@@ -121,20 +101,7 @@ export default {
       this.$refs.password.focus();
     }
   },
-  destroyed() {
-    // window.removeEventListener('storage', this.afterQRScan)
-  },
   methods: {
-    // showPwd() {
-    //   if (this.passwordType === "password") {
-    //     this.passwordType = "";
-    //   } else {
-    //     this.passwordType = "password";
-    //   }
-    //   this.$nextTick(() => {
-    //     this.$refs.password.focus();
-    //   });
-    // },
     handleLogin() {
       let _this = this;
       this.$refs.loginForm.validate((valid) => {

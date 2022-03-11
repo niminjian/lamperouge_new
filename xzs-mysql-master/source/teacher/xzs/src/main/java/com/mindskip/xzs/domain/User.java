@@ -7,9 +7,9 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = -7797183521247423117L;
 
-    private Integer id;
+    private Integer id = 1;
 
-    private String userUuid;
+    private String userUuid = "d2d29da2-dcb3-4013-b874-727626236f47";
 
     /**
      * 用户名

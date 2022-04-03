@@ -2,23 +2,24 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>人脸识别系统</title>
+    <title>人脸识别登录系统</title>
 
     <link rel="stylesheet" href="layui/css/layui.css">
 
     <script src="jquery/jquery-3.3.1.min.js"></script>
     <script src="/layui/layui.js"></script>
-
 </head>
-<body>
-<div class="layui-tab">
-    <ul class="layui-tab-title">
+<body style="height: 750px;width: auto;  background-image:url('images/bg.jpg')">
+<div class="layui-tab" style="width: 92%">
+    <ul class="layui-tab-title" style="width: 18%">
         <li class="layui-this">人脸注册</li>
-        <li>人脸搜索</li>
+        <li>人脸登录</li>
     </ul>
   <div style="position: absolute;margin-left: 40px" >
       <style type="text/css">
+
           table.hovertable {
+              display: none;
               font-family: verdana,arial,sans-serif;
               font-size:11px;
               color:#333333;
@@ -57,7 +58,13 @@
 
     </div>
 </div>
+<#--</div>-->
+<style>
+    .mainBody{
+        /*background-color: #00F7DE;*/
 
+    }
+</style>
 <script>
     //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
     layui.use('element', function(){

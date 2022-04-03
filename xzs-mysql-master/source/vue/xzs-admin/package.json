@@ -31,6 +31,7 @@
         "core-js": "^3.19.1",
         "driver.js": "^0.9.8",
         "dropzone": "^5.9.3",
+        "echarts": "^5.3.1",
         "element-ui": "^2.15.6",
         "file-saver": "^2.0.5",
         "husky": "^7.0.4",

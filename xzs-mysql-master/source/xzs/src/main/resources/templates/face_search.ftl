@@ -1,10 +1,9 @@
 
 <div class="layui-row">
     <div class="layui-col-xs7 layui-col-md-offset3" align="center">
-        <div style="margin: auto; width: 800px;height: 80px;background-color: #383939">
-            <div style="margin: auto;height: 80px;text-align:center;line-height:80px;font-size: 40px;color: #E51C23">
-                人脸识别系统
-            </div>
+        <div style="background-color: rgba(255,255,255,0.4);width: 500px;padding: 20px">
+        <div style="margin: auto;width: 500px;height: 30px;text-align:center;line-height:30px;font-size: 30px;font-weight: bold; color: #000000">
+            人脸识别登录
         </div>
 
         <div id="regcoDiv">
@@ -14,17 +13,17 @@
             <table frame="void">
                 <tr>
                     <td><button title="人脸识别" value="人脸识别" onclick="getMedia2()"
-                                style="color:#FFFFFF;height: 30px;display:block;margin:0 auto;margin-top:10px;width:120px;background-color: #3F51B5;border-radius:5px;text-align: center;line-height: 30px;font-size: 20px" >摄像头识别</button></td>
-                    <td><button style="color:#FFFFFF;height: 30px;display:block;margin:0 auto;margin-top:10px;width:120px;background-color: #3F51B5;border-radius:5px;text-align: center;line-height: 30px;font-size: 20px" onclick="imageTo()">照片识别</button></td>
+                                style="color:#FFFFFF;height: 40px;display:block;margin:8px;margin-top:14px;padding: 5px;width:120px;background-color: #1890ff;border-radius:5px;text-align: center;line-height: 16px;font-size: 16px;border: none" >摄像头识别</button></td>
+                    <td><button style="color:#FFFFFF;height: 40px;display:block;margin:8px;margin-top:14px;padding: 5px;width:120px;background-color: #1890ff;border-radius:5px;text-align: center;line-height: 16px;font-size: 16px;border: none" onclick="imageTo()">照片识别</button></td>
                 </tr>
-                <tr><td colspan="2"><button id="snap" onclick="chooseFileChangeComp()" style="color:#FFFFFF;height: 30px;display:block;margin:0 auto;margin-top:10px;width:100px;background-color: #3F51B5;border-radius:5px;text-align: center;line-height: 30px;font-size: 20px">提交</button></td></tr>
+                <tr><td colspan="2"><button id="snap" onclick="chooseFileChangeComp()" style="color:#FFFFFF;height: 40px;display:block;margin:0 auto;margin-top:10px;padding: 5px;width:100px;background-color: #1890ff;border-radius:5px;text-align: center;line-height: 16px;font-size: 16px;border: none">提交</button></td></tr>
             </table>
 
         </div>
         <div>
             <img id="imageDivComp" />
         </div>
-
+        </div>
     </div>
 
 </div>
@@ -37,7 +36,7 @@
     function imageTo()
     {
         $("#regcoDiv").empty();
-        let imageInput = "<h2>点击图片区域上传文件</h2><input style='display: none' type='file' name='file1' id='file1' multiple='multiple' /><br><img src='images/shibie.jpg' onclick='chooseFile()' id='img0' style='width: 30rem;height: 25rem;'>";
+        let imageInput = "<input style='display: none' type='file' name='file1' id='file1' multiple='multiple' /><img src='images/bgg.jpg' onclick='chooseFile()' id='img0' style='width: 400px;height: 400px;opacity: 70%;margin-top: 20px;padding-bottom: 4px'>";
         $("#regcoDiv").append(imageInput);
 
     }
@@ -69,7 +68,7 @@
 
     function getMedia2() {
         $("#regcoDiv").empty();
-        let vedioComp = "<video id='video2' width='500px' height='500px' autoplay='autoplay' style='margin-top: 20px'></video><canvas id='canvas2' width='500px' height='500px' style='display: none'></canvas>";
+        let vedioComp = "<video id='video2' width='400px' height='400px' autoplay='autoplay' style='margin-top: 20px'></video><canvas id='canvas2' width='500px' height='500px' style='display: none'></canvas>";
         $("#regcoDiv").append(vedioComp);
         let constraints = {
             video: {width: 500, height: 500},

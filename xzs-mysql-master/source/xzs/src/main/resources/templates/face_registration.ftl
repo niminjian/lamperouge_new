@@ -1,32 +1,32 @@
 <div class="layui-row">
     <div class="layui-col-xs7 layui-col-md-offset3" align="center">
-        <div style="margin: auto; width: 800px;height: 80px;background-color: #383939">
-            <div style="margin: auto;height: 80px;text-align:center;line-height:80px;font-size: 40px;color: #E51C23">
-                人脸识别系统
+        <div style="background-color: rgba(255,255,255,0.4);width: 500px;padding: 20px" >
+            <div style="margin: auto;width: 500px;height: 30px;text-align:center;line-height:30px;font-size: 30px;font-weight: bold; color: #000000">
+                人脸识别注册
             </div>
-        </div>
-        <div style="color:#FFFFFF;height: 50px;margin-top:20px;margin-left:20px;margin-right:20px;background-color: #5A5B5B;border-radius:5px">
-            <label style="margin-left: 180px;height: 50px;line-height:50px;font-size: 21px;text-align: right;float: left">姓名：</label>
+        <div style="color:#FFFFFF;width: 400px; height: 50px;margin-top:20px;margin-left:20px;margin-right:20px;background-color: #5A5B5B;border-radius:5px;opacity: 40%">
+            <label style="margin-left: 10px;width:60px; height: 50px;line-height:50px;font-size: 16px;text-align: right;float: left">姓名：</label>
 
-            <input style="width:300px;margin-left: 0px;height: 50px;font-size: 21px;background-color: #5a5b5b;color:#FFFFFF;border: 0px;"
+            <input style="width:200px;margin-left: 10px;height: 50px;font-size: 16px;background-color: #5a5b5b;color:#FFFFFF;border: 1px;"
                   placeholder="在此输入姓名" type="text" name="userName" id="userName">
         </div>
 
-        <div id="mainDiv">
+        <div id="mainDiv" >
 
         </div>
         <div>
             <table frame="void" >
                 <tr>
-                    <td><button title="摄像头注册" value="摄像头注册" onclick="getMedia()" style="color:#FFFFFF;height: 30px;display:block;margin:0 auto;margin-top:10px;width:120px;background-color: #3F51B5;border-radius:5px;text-align: center;line-height: 30px;font-size: 20px" >摄像头注册</button></td>
-                    <td><button style="color:#FFFFFF;height: 30px;display:block;margin:0 auto;margin-top:10px;width:120px;background-color: #3F51B5;border-radius:5px;text-align: center;line-height: 30px;font-size: 20px" onclick="imageRecog()">照片注册</button></td>
+                    <td><button title="摄像头注册" value="摄像头注册" onclick="getMedia()" style="color:#FFFFFF;height: 40px;display:block;margin:8px;margin-top:14px;padding: 5px; width:120px;background-color: #1890ff;border-radius:5px;text-align: center;line-height: 16px;font-size: 16px;border: none" >摄像头注册</button></td>
+                    <td><button style="color:#FFFFFF;height: 40px;display:block;margin:8px;margin-top:14px;padding: 5px; width:120px;background-color: #1890ff;border-radius:5px;text-align: center;line-height: 16px;font-size: 16px;border: none" onclick="imageRecog()">照片注册</button></td>
                 </tr>
                 <#--<td><button id="snap" onclick="commitPhoto()" style="color:#FFFFFF;height: 30px;display:block;margin:0 auto;margin-top:10px;width:100px;background-color: #3F51B5;border-radius:5px;text-align: center;line-height: 30px;font-size: 20px">照片提交</button></td>-->
-                <tr><td colspan="2"><button id="snap" onclick="takePhoto()"  style="color:#FFFFFF;height: 30px;display:block;margin:0 auto;margin-top:10px;width:100px;background-color: #3F51B5;border-radius:5px;text-align: center;line-height: 30px;font-size: 20px">提交</button></td></tr>
+                <tr><td colspan="2"><button id="snap" onclick="takePhoto()"  style="color:#FFFFFF;height: 40px;display:block;margin:0 auto;margin-top:10px;padding: 5px; width:100px;background-color: #1890ff;border-radius:5px;text-align: center;line-height: 16px;font-size: 16px; border: none">提交</button></td></tr>
             </table>
         </div>
         <div style="float: right">
 
+        </div>
         </div>
     </div>
 
@@ -38,11 +38,11 @@
 
     function getMedia() {
         $("#mainDiv").empty();
-        let videoComp = " <video id='video' width='500px' height='500px' autoplay='autoplay' style='margin-top: 20px'></video><canvas id='canvas' width='500px' height='500px' style='display: none'></canvas>";
+        let videoComp = " <video id='video' width='400px' height='400px' autoplay='autoplay' style='margin-top: 20px'></video><canvas id='canvas' width='400px' height='400px' style='display: none'></canvas>";
         $("#mainDiv").append(videoComp);
 
         let constraints = {
-            video: {width: 500, height: 500},
+            video: {width: 400, height: 400},
             audio: true
         };
         //获得video摄像头区域
@@ -77,7 +77,7 @@
             let video = document.getElementById("video");
             let canvas = document.getElementById("canvas");
             let ctx = canvas.getContext('2d');
-            ctx.drawImage(video, 0, 0, 500, 500);
+            ctx.drawImage(video, 0, 0, 400, 400);
             var formData = new FormData();
             var base64File = canvas.toDataURL();
             var userName = $("#userName").val();
@@ -141,7 +141,7 @@
     }
 
     function imageRecog() {
-        let imageInput = " <h2>点击图片区域上传文件</h2><input style='display: none' type='file'  name='file0' id='file0' multiple='multiple' /><br><img src='images/shibie.jpg' id='img0' onclick='toChooseFile()' style='width: 30rem;height: 25rem;'>";
+        let imageInput = "<input style='display: none' type='file'  name='file0' id='file0' multiple='multiple' /><img src='images/bgg.jpg' id='img0' onclick='toChooseFile()' style='width: 400px;height: 400px;opacity: 70%;margin-top: 20px;margin-bottom: 4px'>";
         $("#mainDiv").empty();
         $("#mainDiv").append(imageInput);
     }

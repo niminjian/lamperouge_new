@@ -3,92 +3,119 @@
     <el-header height="61" class="student-header">
       <div class="head-user">
         <el-dropdown trigger="click" placement="bottom">
-          <el-badge :is-dot="messageCount!==0" >
-            <el-avatar  class="el-dropdown-avatar" size="medium"  :src="userInfo.imagePath === null ? require('@/assets/avatar.png') : userInfo.imagePath"></el-avatar>
+          <el-badge :is-dot="messageCount !== 0">
+            <el-avatar
+              class="el-dropdown-avatar"
+              size="medium"
+              :src="
+                userInfo.imagePath === null
+                  ? require('@/assets/avatar.png')
+                  : userInfo.imagePath
+              "
+            ></el-avatar>
           </el-badge>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="$router.push({path:'/user/index'})">个人中心</el-dropdown-item>
-            <el-dropdown-item @click.native="$router.push({path:'/user/message'})">
-              <el-badge :value="messageCount" v-if="messageCount!==0">
+            <el-dropdown-item
+              @click.native="$router.push({ path: '/user/index' })"
+              >个人中心</el-dropdown-item
+            >
+            <el-dropdown-item
+              @click.native="$router.push({ path: '/user/message' })"
+            >
+              <el-badge :value="messageCount" v-if="messageCount !== 0">
                 <span>消息中心</span>
               </el-badge>
-              <span  v-if="messageCount===0">消息中心</span>
+              <span v-if="messageCount === 0">消息中心</span>
             </el-dropdown-item>
-            <el-dropdown-item @click.native="logout" divided>退出</el-dropdown-item>
+            <el-dropdown-item @click.native="logout" divided
+              >退出</el-dropdown-item
+            >
           </el-dropdown-menu>
         </el-dropdown>
       </div>
-      <el-menu class="el-menu-title" mode="horizontal" :default-active="defaultUrl" :router="true">
+      <el-menu
+        class="el-menu-title"
+        mode="horizontal"
+        :default-active="defaultUrl"
+        :router="true"
+      >
         <el-menu-item index="/index">首页</el-menu-item>
         <el-menu-item index="/paper/index">试卷中心</el-menu-item>
         <el-menu-item index="/record/index">考试记录</el-menu-item>
         <el-menu-item index="/question/index">错题本</el-menu-item>
+        <el-menu-item index="/knowledge/2dView">知识图谱</el-menu-item>
       </el-menu>
       <div>
         <a href="/"></a>
       </div>
     </el-header>
     <el-main class="student-main">
-      <router-view/>
+      <router-view />
     </el-main>
   </el-container>
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex'
-import loginApi from '@/api/login'
-import userApi from '@/api/user'
+import { mapActions, mapMutations, mapState } from "vuex";
+import loginApi from "@/api/login";
+import userApi from "@/api/user";
 export default {
-  name: 'Layout',
-  data () {
+  name: "Layout",
+  data() {
     return {
-      defaultUrl: '/index',
+      defaultUrl: "/index",
       userInfo: {
-        imagePath: null
-      }
-    }
+        imagePath: null,
+      },
+    };
   },
-  created () {
-    let _this = this
-    this.defaultUrl = this.routeSelect(this.$route.path)
-    this.getUserMessageInfo()
-    userApi.getCurrentUser().then(re => {
-      _this.userInfo = re.response
-    })
+  created() {
+    let _this = this;
+    this.defaultUrl = this.routeSelect(this.$route.path);
+    this.getUserMessageInfo();
+    userApi.getCurrentUser().then((re) => {
+      _this.userInfo = re.response;
+    });
   },
   watch: {
-    $route (to, from) {
-      this.defaultUrl = this.routeSelect(to.path)
-    }
+    $route(to, from) {
+      this.defaultUrl = this.routeSelect(to.path);
+    },
   },
   methods: {
-    routeSelect (path) {
-      let topPath = ['/', '/index', '/paper/index', '/record/index', '/question/index']
+    routeSelect(path) {
+      let topPath = [
+        "/",
+        "/index",
+        "/paper/index",
+        "/record/index",
+        "/question/index",
+        "/knowledge/2dView",
+      ];
       if (topPath.indexOf(path)) {
-        return path
+        return path;
       }
-      return null
+      return null;
     },
-    logout () {
-      let _this = this
+    logout() {
+      let _this = this;
       loginApi.logout().then(function (result) {
         if (result && result.code === 1) {
-          _this.clearLogin()
-          _this.$router.push({ path: '/login' })
+          _this.clearLogin();
+          _this.$router.push({ path: "/login" });
         }
-      })
+      });
     },
-    ...mapActions('user', ['getUserMessageInfo']),
-    ...mapMutations('user', ['clearLogin'])
+    ...mapActions("user", ["getUserMessageInfo"]),
+    ...mapMutations("user", ["clearLogin"]),
   },
   computed: {
-    ...mapState('user', {
-      messageCount: state => state.messageCount
-    })
-  }
-}
+    ...mapState("user", {
+      messageCount: (state) => state.messageCount,
+    }),
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>

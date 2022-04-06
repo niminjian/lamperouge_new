@@ -45,7 +45,11 @@
     "screenfull": "^5.2.0",
     "vue": "^2.6.14",
     "vue-router": "^3.5.3",
-    "vuex": "^3.6.2"
+    "vuex": "^3.6.2",
+    "3d-force-graph": "^1.67.6",
+    "three-spritetext": "^1.5.3",
+    "d3": "^6.2.0",
+    "d3-context-menu": "^1.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.15",

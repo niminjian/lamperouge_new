@@ -68,6 +68,30 @@ const router = new Router({
         }
       ]
     },
+     {
+      path: '/knowledge',
+      component: Layout,
+      children: [
+        {
+          path: 'index',
+          component: () => import('@/views/knowledge/index'),
+          name: 'QuestionErrorIndex',
+          meta: { title: '知识图谱' }
+        },
+         {
+          path: '2dView',
+          component: () => import('@/views/knowledge/2dView'),
+          name: '2dView',
+          meta: { title: '2D知识图谱' }
+        },
+          {
+          path: '3dView',
+          component: () => import('@/views/knowledge/3dView'),
+          name: '3dView',
+          meta: { title: '3D知识图谱' }
+        }
+      ]
+    },
     {
       path: '/user',
       component: Layout,

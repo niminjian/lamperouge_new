@@ -3,15 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mindskip</groupId>
-    <artifactId>xzs</artifactId>
-    <version>3.5.0</version>
-    <packaging>jar</packaging>
-
-    <name>xzs</name>
-    <url>https://www.mindskip.net/xzs.html</url>
-    <description>Lamperouge考试系统</description>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -30,34 +21,6 @@
         <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
-
-    <issueManagement>
-        <system>Gitee Issue</system>
-        <url>https://gitee.com/mindskip/xzs-mysql/issues</url>
-    </issueManagement>
-
-    <licenses>
-        <license>
-            <name>GNU Affero General Public License v3.0</name>
-            <url>https://www.gnu.org/licenses/agpl-3.0.txt</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <organization>蝴蝶效应团队</organization>
-            <organizationUrl>https://www.mindskip.net</organizationUrl>
-            <email>mindskip@qq.com</email>
-        </developer>
-    </developers>
-
-    <scm>
-        <connection>scm:git@gitee.com:mindskip/xzs-mysql.git</connection>
-        <developerConnection>scm:git@gitee.com:mindskip/xzs-mysql.git</developerConnection>
-        <url>git@gitee.com:mindskip/xzs-mysql.git</url>
-    </scm>
-
 
     <repositories>
         <repository>

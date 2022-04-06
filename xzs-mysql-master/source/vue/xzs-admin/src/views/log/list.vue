@@ -29,7 +29,7 @@
 .app-container {  //给最大的选择器指定样式
   width: 100%;
   height: 100vh;
-  background: url("../../assets/log.jpg") center center no-repeat;
+  /*background: url("../../assets/log.jpg") center center no-repeat;*/
   background-size: 100% 100%;
 }
 

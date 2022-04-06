@@ -13,9 +13,9 @@
       </div>
 
       <el-form-item prop="userName">
-        <!--        <span class="svg-container">-->
-        <!--          <svg-icon icon-class="user" />-->
-        <!--        </span>-->
+        <span class="svg-container">
+          <svg-icon icon-class="user" />
+        </span>
         <el-input
           ref="userName"
           v-model="loginForm.userName"
@@ -28,9 +28,9 @@
       </el-form-item>
 
       <el-form-item prop="password">
-        <!--          <span class="svg-container">-->
-        <!--            <svg-icon icon-class="password" />-->
-        <!--          </span>-->
+        <span class="svg-container">
+          <svg-icon icon-class="password" />
+        </span>
         <el-input
           :key="passwordType"
           ref="password"
@@ -43,18 +43,18 @@
           @keyup.native="checkCapslock"
           @keyup.enter.native="handleLogin"
         />
-        <!--          <span class="show-pwd" @click="showPwd">-->
-        <!--            <svg-icon-->
-        <!--              :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"-->
-        <!--            />-->
-        <!--          </span>-->
+        <span class="show-pwd" @click="showPwd">
+          <svg-icon
+            :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
+          />
+        </span>
       </el-form-item>
 
-      <!--      <el-checkbox-->
-      <!--        v-model="loginForm.remember"-->
-      <!--        style="margin-bottom: 20px; margin-left: 5px; color: #00a0e9"-->
-      <!--        >记住密码</el-checkbox-->
-      <!--      >-->
+      <el-checkbox
+        v-model="loginForm.remember"
+        style="margin-bottom: 20px; margin-left: 5px; color: #00a0e9"
+        >记住密码</el-checkbox
+      >
 
       <el-button
         :loading="loading"
@@ -132,16 +132,16 @@ export default {
     // window.removeEventListener('storage', this.afterQRScan)
   },
   methods: {
-    // showPwd() {
-    //   if (this.passwordType === "password") {
-    //     this.passwordType = "";
-    //   } else {
-    //     this.passwordType = "password";
-    //   }
-    //   this.$nextTick(() => {
-    //     this.$refs.password.focus();
-    //   });
-    // },
+    showPwd() {
+      if (this.passwordType === "password") {
+        this.passwordType = "";
+      } else {
+        this.passwordType = "password";
+      }
+      this.$nextTick(() => {
+        this.$refs.password.focus();
+      });
+    },
     handleLogin() {
       let _this = this;
       this.$refs.loginForm.validate((valid) => {

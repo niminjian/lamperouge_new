@@ -191,7 +191,7 @@ export default {
   padding: 32px;
   background-color: rgb(180, 168, 179);
   position: relative;
-  background: url("../../assets/dashboard.jpg");
+  /*background: url("../../assets/dashboard.jpg");*/
   background-size: 100% 100%;
   background-color: unset;
 
@@ -343,7 +343,7 @@ export default {
 }
 
 .echarts-line {
-  background: rgb(249, 205, 173);
+  background: rgb(252, 249, 247);
   padding: 16px 16px 0;
   margin-bottom: 32px;
 }

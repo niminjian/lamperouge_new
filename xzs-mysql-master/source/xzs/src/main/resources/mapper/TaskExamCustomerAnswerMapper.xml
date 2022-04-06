@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mindskip.xzs.repository.TaskExamCustomerAnswerMapper">
-  <resultMap id="BaseResultMap" type="com.mindskip.xzs.domain.TaskExamCustomerAnswer">
+<mapper namespace="com.zucc.lamperouge.repository.TaskExamCustomerAnswerMapper">
+  <resultMap id="BaseResultMap" type="com.zucc.lamperouge.domain.TaskExamCustomerAnswer">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="task_exam_id" jdbcType="INTEGER" property="taskExamId" />
     <result column="create_user" jdbcType="INTEGER" property="createUser" />
@@ -21,13 +21,13 @@
     delete from t_task_exam_customer_answer
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.TaskExamCustomerAnswer" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.zucc.lamperouge.domain.TaskExamCustomerAnswer" useGeneratedKeys="true" keyProperty="id">
     insert into t_task_exam_customer_answer (id, task_exam_id, create_user,
       create_time, text_content_id)
     values (#{id,jdbcType=INTEGER}, #{taskExamId,jdbcType=INTEGER}, #{createUser,jdbcType=INTEGER},
       #{createTime,jdbcType=TIMESTAMP}, #{textContentId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.TaskExamCustomerAnswer" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.zucc.lamperouge.domain.TaskExamCustomerAnswer" useGeneratedKeys="true" keyProperty="id">
     insert into t_task_exam_customer_answer
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mindskip.xzs.domain.TaskExamCustomerAnswer">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zucc.lamperouge.domain.TaskExamCustomerAnswer">
     update t_task_exam_customer_answer
     <set>
       <if test="taskExamId != null">
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mindskip.xzs.domain.TaskExamCustomerAnswer">
+  <update id="updateByPrimaryKey" parameterType="com.zucc.lamperouge.domain.TaskExamCustomerAnswer">
     update t_task_exam_customer_answer
     set task_exam_id = #{taskExamId,jdbcType=INTEGER},
       create_user = #{createUser,jdbcType=INTEGER},

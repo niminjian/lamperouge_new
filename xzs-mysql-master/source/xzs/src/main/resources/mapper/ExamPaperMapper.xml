@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mindskip.xzs.repository.ExamPaperMapper">
-  <resultMap id="BaseResultMap" type="com.mindskip.xzs.domain.ExamPaper">
+<mapper namespace="com.zucc.lamperouge.repository.ExamPaperMapper">
+  <resultMap id="BaseResultMap" type="com.zucc.lamperouge.domain.ExamPaper">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
@@ -33,7 +33,7 @@
     delete from t_exam_paper
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.ExamPaper" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.zucc.lamperouge.domain.ExamPaper" useGeneratedKeys="true" keyProperty="id">
     insert into t_exam_paper (id, name, subject_id,
       paper_type, grade_level, score,
       question_count, suggest_time, limit_start_time,
@@ -47,7 +47,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, #{taskExamId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.ExamPaper" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.zucc.lamperouge.domain.ExamPaper" useGeneratedKeys="true" keyProperty="id">
     insert into t_exam_paper
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -144,7 +144,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mindskip.xzs.domain.ExamPaper">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zucc.lamperouge.domain.ExamPaper">
     update t_exam_paper
     <set>
       <if test="name != null">
@@ -192,7 +192,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mindskip.xzs.domain.ExamPaper">
+  <update id="updateByPrimaryKey" parameterType="com.zucc.lamperouge.domain.ExamPaper">
     update t_exam_paper
     set name = #{name,jdbcType=VARCHAR},
       subject_id = #{subjectId,jdbcType=INTEGER},
@@ -218,7 +218,7 @@
 
 
 
-  <resultMap id="PaperInfoResultMap" type="com.mindskip.xzs.viewmodel.student.dashboard.PaperInfo">
+  <resultMap id="PaperInfoResultMap" type="com.zucc.lamperouge.viewmodel.student.dashboard.PaperInfo">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="limit_start_time" jdbcType="TIMESTAMP" property="limitStartTime" />
@@ -226,7 +226,7 @@
   </resultMap>
 
 
-  <select id="page" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.admin.exam.ExamPaperPageRequestVM">
+  <select id="page" resultMap="BaseResultMap" parameterType="com.zucc.lamperouge.viewmodel.admin.exam.ExamPaperPageRequestVM">
     SELECT
     <include refid="Base_Column_List"/>
     FROM t_exam_paper
@@ -251,7 +251,7 @@
 
 
 
-  <select id="taskExamPage" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.admin.exam.ExamPaperPageRequestVM">
+  <select id="taskExamPage" resultMap="BaseResultMap" parameterType="com.zucc.lamperouge.viewmodel.admin.exam.ExamPaperPageRequestVM">
     SELECT
     <include refid="Base_Column_List"/>
     FROM t_exam_paper
@@ -263,7 +263,7 @@
     </where>
   </select>
 
-  <select id="studentPage" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.student.exam.ExamPaperPageVM">
+  <select id="studentPage" resultMap="BaseResultMap" parameterType="com.zucc.lamperouge.viewmodel.student.exam.ExamPaperPageVM">
     SELECT
     <include refid="Base_Column_List"/>
     FROM t_exam_paper
@@ -280,7 +280,7 @@
   </select>
 
 
-  <select id="indexPaper" resultMap="PaperInfoResultMap" parameterType="com.mindskip.xzs.viewmodel.student.dashboard.PaperFilter">
+  <select id="indexPaper" resultMap="PaperInfoResultMap" parameterType="com.zucc.lamperouge.viewmodel.student.dashboard.PaperFilter">
     SELECT id,name,limit_start_time,limit_end_time
     FROM t_exam_paper
     <where>
@@ -301,7 +301,7 @@
 		SELECT count(*) from t_exam_paper where deleted=0
 	</select>
 
-  <select id="selectCountByDate"  resultType="com.mindskip.xzs.domain.other.KeyValue">
+  <select id="selectCountByDate"  resultType="com.zucc.lamperouge.domain.other.KeyValue">
 		SELECT create_time as name,COUNT(create_time) as value from
 		        (
 				  SELECT DATE_FORMAT(create_time,'%Y-%m-%d') as create_time from t_exam_paper

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mindskip.xzs.repository.ExamPaperAnswerMapper">
-  <resultMap id="BaseResultMap" type="com.mindskip.xzs.domain.ExamPaperAnswer">
+<mapper namespace="com.zucc.lamperouge.repository.ExamPaperAnswerMapper">
+  <resultMap id="BaseResultMap" type="com.zucc.lamperouge.domain.ExamPaperAnswer">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="exam_paper_id" jdbcType="INTEGER" property="examPaperId" />
     <result column="paper_name" jdbcType="VARCHAR" property="paperName" />
@@ -33,7 +33,7 @@
     delete from t_exam_paper_answer
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.ExamPaperAnswer" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.zucc.lamperouge.domain.ExamPaperAnswer" useGeneratedKeys="true" keyProperty="id">
     insert into t_exam_paper_answer (id, exam_paper_id, paper_name,
       paper_type, subject_id, system_score,
       user_score, paper_score, question_correct,
@@ -47,7 +47,7 @@
       #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{taskExamId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.ExamPaperAnswer" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.zucc.lamperouge.domain.ExamPaperAnswer" useGeneratedKeys="true" keyProperty="id">
     insert into t_exam_paper_answer
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -144,7 +144,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mindskip.xzs.domain.ExamPaperAnswer">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zucc.lamperouge.domain.ExamPaperAnswer">
     update t_exam_paper_answer
     <set>
       <if test="examPaperId != null">
@@ -192,7 +192,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mindskip.xzs.domain.ExamPaperAnswer">
+  <update id="updateByPrimaryKey" parameterType="com.zucc.lamperouge.domain.ExamPaperAnswer">
     update t_exam_paper_answer
     set exam_paper_id = #{examPaperId,jdbcType=INTEGER},
       paper_name = #{paperName,jdbcType=VARCHAR},
@@ -215,7 +215,7 @@
 
 
 
-  <select id="studentPage" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.student.exampaper.ExamPaperAnswerPageVM">
+  <select id="studentPage" resultMap="BaseResultMap" parameterType="com.zucc.lamperouge.viewmodel.student.exampaper.ExamPaperAnswerPageVM">
     SELECT
     <include refid="Base_Column_List"/>
     FROM t_exam_paper_answer
@@ -233,7 +233,7 @@
   </select>
 
 
-  <select id="selectCountByDate"  resultType="com.mindskip.xzs.domain.other.KeyValue">
+  <select id="selectCountByDate"  resultType="com.zucc.lamperouge.domain.other.KeyValue">
 		SELECT create_time as name,COUNT(create_time) as value from
 		        (
 				  SELECT DATE_FORMAT(create_time,'%Y-%m-%d') as create_time from t_exam_paper_answer
@@ -252,7 +252,7 @@
   </select>
 
 
-  <select id="adminPage" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.admin.paper.ExamPaperAnswerPageRequestVM">
+  <select id="adminPage" resultMap="BaseResultMap" parameterType="com.zucc.lamperouge.viewmodel.admin.paper.ExamPaperAnswerPageRequestVM">
     SELECT
     <include refid="Base_Column_List"/>
     FROM t_exam_paper_answer

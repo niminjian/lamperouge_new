@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mindskip.xzs.repository.SubjectMapper">
-  <resultMap id="BaseResultMap" type="com.mindskip.xzs.domain.Subject">
+<mapper namespace="com.zucc.lamperouge.repository.SubjectMapper">
+  <resultMap id="BaseResultMap" type="com.zucc.lamperouge.domain.Subject">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="level" jdbcType="INTEGER" property="level" />
@@ -13,7 +13,7 @@
     id, name, level, level_name, item_order, deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_subject
     where id = #{id,jdbcType=INTEGER}
@@ -22,15 +22,15 @@
     delete from t_subject
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.Subject" useGeneratedKeys="true" keyProperty="id">
-    insert into t_subject (id, name, level, 
+  <insert id="insert" parameterType="com.zucc.lamperouge.domain.Subject" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subject (id, name, level,
       level_name, item_order, deleted
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER},
       #{levelName,jdbcType=VARCHAR}, #{itemOrder,jdbcType=INTEGER}, #{deleted,jdbcType=BIT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.Subject" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.zucc.lamperouge.domain.Subject" useGeneratedKeys="true" keyProperty="id">
     insert into t_subject
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mindskip.xzs.domain.Subject">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zucc.lamperouge.domain.Subject">
     update t_subject
     <set>
       <if test="name != null">
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mindskip.xzs.domain.Subject">
+  <update id="updateByPrimaryKey" parameterType="com.zucc.lamperouge.domain.Subject">
     update t_subject
     set name = #{name,jdbcType=VARCHAR},
       level = #{level,jdbcType=INTEGER},
@@ -119,7 +119,7 @@
     from t_subject
   </select>
 
-  <select id="page" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.admin.education.SubjectPageRequestVM">
+  <select id="page" resultMap="BaseResultMap" parameterType="com.zucc.lamperouge.viewmodel.admin.education.SubjectPageRequestVM">
     SELECT
     <include refid="Base_Column_List"/>
     FROM t_subject

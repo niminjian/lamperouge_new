@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mindskip.xzs.repository.TaskExamMapper">
-  <resultMap id="BaseResultMap" type="com.mindskip.xzs.domain.TaskExam">
+<mapper namespace="com.zucc.lamperouge.repository.TaskExamMapper">
+  <resultMap id="BaseResultMap" type="com.zucc.lamperouge.domain.TaskExam">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="grade_level" jdbcType="INTEGER" property="gradeLevel" />
@@ -25,7 +25,7 @@
     delete from t_task_exam
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.TaskExam" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.zucc.lamperouge.domain.TaskExam" useGeneratedKeys="true" keyProperty="id">
     insert into t_task_exam (id, title, grade_level,
       frame_text_content_id, create_user, create_time,
       deleted, create_user_name)
@@ -33,7 +33,7 @@
       #{frameTextContentId,jdbcType=INTEGER}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
       #{deleted,jdbcType=BIT}, #{createUserName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.TaskExam" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.zucc.lamperouge.domain.TaskExam" useGeneratedKeys="true" keyProperty="id">
     insert into t_task_exam
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -88,7 +88,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mindskip.xzs.domain.TaskExam">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zucc.lamperouge.domain.TaskExam">
     update t_task_exam
     <set>
       <if test="title != null">
@@ -115,7 +115,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mindskip.xzs.domain.TaskExam">
+  <update id="updateByPrimaryKey" parameterType="com.zucc.lamperouge.domain.TaskExam">
     update t_task_exam
     set title = #{title,jdbcType=VARCHAR},
       grade_level = #{gradeLevel,jdbcType=INTEGER},
@@ -134,7 +134,7 @@
 
 
 
-  <select id="page" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.admin.task.TaskPageRequestVM">
+  <select id="page" resultMap="BaseResultMap" parameterType="com.zucc.lamperouge.viewmodel.admin.task.TaskPageRequestVM">
     select
     <include refid="Base_Column_List" />
     from t_task_exam

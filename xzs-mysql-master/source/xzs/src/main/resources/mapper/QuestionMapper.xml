@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mindskip.xzs.repository.QuestionMapper">
-  <resultMap id="BaseResultMap" type="com.mindskip.xzs.domain.Question">
+<mapper namespace="com.zucc.lamperouge.repository.QuestionMapper">
+  <resultMap id="BaseResultMap" type="com.zucc.lamperouge.domain.Question">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="question_type" jdbcType="INTEGER" property="questionType" />
     <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
@@ -29,7 +29,7 @@
     delete from t_question
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mindskip.xzs.domain.Question" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.zucc.lamperouge.domain.Question" useGeneratedKeys="true" keyProperty="id">
     insert into t_question (id, question_type, subject_id,
       score, grade_level, difficult,
       correct, info_text_content_id, create_user,
@@ -41,7 +41,7 @@
       #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mindskip.xzs.domain.Question" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.zucc.lamperouge.domain.Question" useGeneratedKeys="true" keyProperty="id">
     insert into t_question
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -120,7 +120,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mindskip.xzs.domain.Question">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zucc.lamperouge.domain.Question">
     update t_question
     <set>
       <if test="questionType != null">
@@ -159,7 +159,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mindskip.xzs.domain.Question">
+  <update id="updateByPrimaryKey" parameterType="com.zucc.lamperouge.domain.Question">
     update t_question
     set question_type = #{questionType,jdbcType=INTEGER},
       subject_id = #{subjectId,jdbcType=INTEGER},
@@ -178,7 +178,7 @@
 
 
 
-  <select id="page" resultMap="BaseResultMap" parameterType="com.mindskip.xzs.viewmodel.admin.question.QuestionPageRequestVM">
+  <select id="page" resultMap="BaseResultMap" parameterType="com.zucc.lamperouge.viewmodel.admin.question.QuestionPageRequestVM">
     SELECT
     <include refid="Base_Column_List"/>
     FROM t_question
@@ -216,7 +216,7 @@
 		SELECT count(*) from t_question where  deleted=0
 	</select>
 
-  <select id="selectCountByDate"  resultType="com.mindskip.xzs.domain.other.KeyValue">
+  <select id="selectCountByDate"  resultType="com.zucc.lamperouge.domain.other.KeyValue">
 		SELECT create_time as name,COUNT(create_time) as value from
 		        (
 				  SELECT DATE_FORMAT(create_time,'%Y-%m-%d') as create_time from t_question

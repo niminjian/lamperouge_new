@@ -259,7 +259,7 @@
       and deleted=0
       and task_exam_id is null
       and grade_level= #{level}
-      and paper_type=#{paperType}
+      and subject_id= #{subjectId}
     </where>
   </select>
 

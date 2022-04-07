@@ -38,6 +38,9 @@
         mode="horizontal"
         :default-active="defaultUrl"
         :router="true"
+        background-color="#fff"
+        text-color="#00b6e8"
+        active-text-color="#fb7299"
       >
         <el-menu-item index="/index">首页</el-menu-item>
         <el-menu-item index="/paper/index">试卷中心</el-menu-item>
@@ -118,4 +121,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.student-header {
+  border-bottom: 2px solid #00b6e8!important ;
+}
 </style>
